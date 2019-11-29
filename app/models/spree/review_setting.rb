@@ -3,6 +3,8 @@ module Spree
     # Include non-approved reviews in (public) listings.
     preference :include_unapproved_reviews, :boolean, default: false
 
+    preference :show_only_avarage_rating, :boolean, default: false
+
     # Control how many reviews are shown in summaries etc.
     preference :preview_size, :integer, default: 3
 
