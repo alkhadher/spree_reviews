@@ -2,6 +2,15 @@
   <span class="reviews-rating" title="<%= txt_stars(review.rating) %>">
     <%= render 'spree/reviews/stars', stars: review.rating %>
   </span>
+  <span class="reviews-specs" title="<%= txt_stars(review.specs) %>">
+    <%= render 'spree/reviews/specs', stars: review.specs %>
+  </span>
+  <span class="reviews-freshness" title="<%= txt_stars(review.freshness) %>">
+    <%= render 'spree/reviews/freshness', stars: review.freshness %>
+  </span>
+  <span class="reviews-delivery_on_time" title="<%= txt_stars(review.delivery_on_time) %>">
+    <%= render 'spree/reviews/delivery_on_time', stars: review.delivery_on_time %>
+  </span>
   <span itemprop="name"><%= review.title %></span>
   <br/>
   <span class="attribution"><%= Spree.t(:submitted_on) %>

@@ -7,6 +7,21 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :specs %>
+    <%= render 'spree/reviews/specs', stars: review.specs, edit_enabled: true %>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :freshness %>
+    <%= render 'spree/reviews/freshness', stars: review.freshness, edit_enabled: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :delivery_on_time %>
+    <%= render 'spree/reviews/delivery_on_time', stars: review.delivery_on_time, edit_enabled: true %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, maxlength: 255, size: 50, class: 'form-control' %>
   </div>

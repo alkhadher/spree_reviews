@@ -1,5 +1,5 @@
-<% stars = product.stars %>
-<% reviews_count = product.reviews_count %>
+<% stars = product.product_mask.stars %>
+<% reviews_count = product.product_mask.reviews_count %>
 <div>
   <div style="float:left;" title="<%= txt_stars(stars) %>">
     <%= render 'spree/reviews/stars', stars: stars %>

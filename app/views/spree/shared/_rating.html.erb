@@ -1,5 +1,5 @@
-<% stars = product.stars %>
-<% reviews_count = product.reviews_count %>
+<% stars = product.product_mask.stars %>
+<% reviews_count = product.product_mask.reviews_count %>
 <div class="ratings">
   <p><%= Spree.t(:average_customer_rating) %>:</p>
   <p class="ratings-stars">

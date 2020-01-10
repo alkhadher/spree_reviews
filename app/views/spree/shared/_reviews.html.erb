@@ -1,11 +1,11 @@
 <div id="reviews">
   <h3 class="product-section-title"><%= Spree.t(:reviews) %></h3>
-  <% if Spree::Reviews::Config[:include_unapproved_reviews] == false and @product.reviews.approved.count == 0 %>
+  <% if Spree::Reviews::Config[:include_unapproved_reviews] == false and @product.product_mask.reviews.approved.count == 0 %>
     <p class="reviews-none"><%= Spree.t(:no_reviews_available) %></p>
   <% else %>
     <%= render 'spree/shared/rating', product: @product, review: 0 %>
     <% unless Spree::Reviews::Config[:show_only_avarage_rating] %>
-      <% for review in (Spree::Reviews::Config[:track_locale] ? @product.reviews.localized(I18n.locale) : @product.reviews).default_approval_filter.preview %>
+      <% for review in (Spree::Reviews::Config[:track_locale] ? @product.product_mask.reviews.localized(I18n.locale) : @product.product_mask.reviews).default_approval_filter.preview %>
         <%= render 'spree/shared/review', review: review %>
       <% end %>
     <% end %>
