@@ -4,7 +4,7 @@ class Spree::Review < ActiveRecord::Base
   belongs_to :user, class_name: Spree.user_class.to_s
   has_many   :feedback_reviews
 
-  after_save :recalculate_product_rating, if: :approved?
+  after_save :recalculate_product_rating, if: :recalculate_rating?
   after_destroy :recalculate_product_rating
 
   validates :name, :review, presence: true
@@ -42,6 +42,9 @@ class Spree::Review < ActiveRecord::Base
   scope :not_approved, -> { where(approved: false) }
   scope :default_approval_filter, -> { Spree::Reviews::Config[:include_unapproved_reviews] ? all : approved }
 
+  def recalculate_rating?
+    self.approved? || Spree::Reviews::Config[:include_unapproved_reviews]
+  end
   def feedback_stars
     return 0 if feedback_reviews.size <= 0
 
